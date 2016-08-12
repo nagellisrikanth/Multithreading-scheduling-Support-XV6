@@ -15,5 +15,5 @@ make qemu
 testing files for new features:
 testc-scheduling
 
-mul1-multithreading
+mul1-multithreading 
 
