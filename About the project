@@ -1,0 +1,19 @@
+In this project I tried to add multithreading and scheduling support to Xv6 
+For the Multithreading support Implemented two system calls clone and join 
+1. Multithreading support in xv6:
+
+Added pthread library support along with locks to xv6 i.e implemented functions such as thread_create ,thread join which are similar to pthread_create ,pthread_join
+Modified files:syscall.c ,syscall.h ,proc.c,proc.h ,sysproc.c,defs.h,pthread.c ,pthread.h,user.h System calls Implemented for threads support:
+- Clone: creates new process similar to fork but allows child process to share part of its execution context with the calling process such as memory space, file descriptors, signal handlers.
+- Join: waits till all the process reach the zombie state and then it kills all such process
+Pthread library functions created for multithreading support: thread_create,thread_join,lock_acquire,lock_release,lock_init
+
+2. Priority based scheduler implementation in xv6:
+Introduction:
+This priority based scheduling policy has been implemented in xv6 by modifying the following files proc.c, proc.h, sysproc.c, sysproc.h, syscall.c, syscall.h, user.h, usys.S, defs.h
+Three additional system calls has been added to xv6 for the implementation they are
+Schedgraph-this system call sets the flag to reperesent the selection of process graphically. Definition:void schedgraph(int);
+Sched_type-this system call allows user to select the type of the scheduler (either RR or Priority) Definition:int sched_type(int);
+Setpriority-this system call allows the user to assign priority for each process according to the pid. Definition:void setpriority(int,int);
+Working:
+To test the working of scheduler we have written an application program(testc.c) that creates NCHILDS(we created 8 childs for testing purpose) specified in the header and these child processes communicates with the parent by using pipe, the procedure of choosing a particular child process to run tests the working of scheduler.
