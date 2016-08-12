@@ -11,6 +11,7 @@ Pthread library functions created for multithreading support: thread_create,thre
 2. Priority based scheduler implementation in xv6:
 Introduction:
 This priority based scheduling policy has been implemented in xv6 by modifying the following files proc.c, proc.h, sysproc.c, sysproc.h, syscall.c, syscall.h, user.h, usys.S, defs.h
+
 Three additional system calls has been added to xv6 for the implementation they are
 Schedgraph-this system call sets the flag to reperesent the selection of process graphically. Definition:void schedgraph(int);
 Sched_type-this system call allows user to select the type of the scheduler (either RR or Priority) Definition:int sched_type(int);
